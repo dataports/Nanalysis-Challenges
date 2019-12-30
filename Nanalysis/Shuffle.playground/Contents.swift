@@ -1,16 +1,13 @@
-
-
-func shuffle(maxNumber: Int) {
+func shuffle(maxNumber: Int) -> [Int] {
     //output integers 1-N in random order
+    let range = 1...maxNumber
+    let rangeSet = Set(range)
     var shuffledArray: [Int] = []
-    
-    for n in 1...maxNumber {
-        shuffledArray.append(n)
+    rangeSet.forEach { number in
+        print(number)
+        shuffledArray.append(number)
     }
-    
-    shuffledArray.shuffle()
-    print(shuffledArray)
-    
-    }
+    return shuffledArray
+   }
 
-shuffle(maxNumber: 10000)
+shuffle(maxNumber: 20)
