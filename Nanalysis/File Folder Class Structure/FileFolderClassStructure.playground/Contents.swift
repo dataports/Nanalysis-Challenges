@@ -1,11 +1,6 @@
-import UIKit
-
 class Node: CustomStringConvertible {
     var description: String {
-        // 3
         var text = "\(nodeName)"
-        
-        // 4
         if !children.isEmpty {
             text += " {" + children.map { $0.description }.joined(separator: ", ") + "} "
         }
@@ -27,14 +22,13 @@ class Node: CustomStringConvertible {
 }
 
 class File: Node {
-
     var content: String = ""
     
     override init(name: String) {
         super.init(name: name)
     }
     
-    func displayFileContent() {
+    func display() {
         print(content)
     }
 }
@@ -45,6 +39,9 @@ class Folder: Node {
         super.init(name: name)
     }
     
+    func display() {
+        print(description)
+    }
 }
 
 
@@ -62,11 +59,8 @@ func main() {
     parentFolder.add(child: childBFile)
     parentFolder.add(child: childCFolder)
     grandparentFolder.add(child: parentFolder)
-    childAFile.displayFileContent()
-    
-    
-    
-    
+    grandparentFolder.display()
+    childAFile.display()
 }
 
 main()
